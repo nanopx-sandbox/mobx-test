@@ -9,7 +9,8 @@ class App extends Component {
     const { counter } = this.props;
     return (
       <div>
-        Hello MobX!
+        <h1>Hello MobX!</h1>
+
         <Counter count={counter.count} />
         <button onClick={counter.onIncrement} disabled={counter.isLoading}>+1</button>
         <button onClick={counter.onDecrement} disabled={counter.isLoading}>-1</button>

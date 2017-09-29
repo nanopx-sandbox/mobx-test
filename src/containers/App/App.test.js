@@ -1,12 +1,11 @@
 import test from 'ava';
 import React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import App from './App.jsx';
+import CounterStore from "../../models/Counter/CounterStore";
 
-configure({ adapter: new Adapter() });
+const counter = new CounterStore();
+const wrapper = shallow(<App counter={ counter } />);
 
-test('has foo', (t) => {
-  const wrapper = shallow(<App />);
-  t.true(wrapper.contains(<div>Hello MobX!</div>))
+test('<App>', (t) => {
+  t.true(wrapper.props().counter === counter);
 });
